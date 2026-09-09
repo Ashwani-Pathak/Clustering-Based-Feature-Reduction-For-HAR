@@ -45,16 +45,12 @@ Naive Bayes assumes feature independence. The raw dataset contained highly corre
 
 ## 📈 Performance Visualizations
 
-To determine the optimal execution roadmap, we experimented with different cluster sizes (`n_clusters` = 40, 50, 60) to observe the trade-off between dimensionality, accuracy, and computational load.
-(download.png)
-### 1. Accuracy vs. Feature Dimensionality
+To determine the optimal execution roadmap, we experimented with different cluster sizes (`n_clusters` = 40, 50, 60) and compared them against the 561-feature baseline to observe the trade-off between dimensionality, accuracy, and computational load.
 
+![Performance Visualizations](download.png)
 
-*Observation:* Peak accuracy is achieved at approximately 50 clusters. Reducing features too aggressively (e.g., 40) strips away vital information, while increasing them (e.g., 60) begins to reintroduce correlated noise, slightly dampening the Naive Bayes performance.
-
-### 2. Training Time Optimization
-
-*Observation:* Wall-clock time scales linearly with the number of retained features. Even at 60 features, the training time is an order of magnitude faster than the 561-feature baseline, proving the viability of this strategy for rapid model iteration.
+*   **Accuracy vs. Feature Dimensionality (Left):** Peak accuracy is achieved at 50 clusters. Reducing features too aggressively strips away vital information, while retaining too many begins to reintroduce correlated noise, slightly dampening performance. However, all optimized sets significantly outperform the baseline.
+*   **Training Time Optimization (Right):** Wall-clock time scales roughly linearly with the number of retained features. The training time for the optimized clusters is an order of magnitude faster than the 561-feature baseline, proving the viability of this strategy for rapid model iteration.
 
 ---
 
